@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	document.body.addEventListener('DOMNodeInserted', function(event) {
+		console.log("DOMNodeInserted");
+	});
+	
+	var a = document.createElement('div');
+	document.body.appendChild(a);
+	
+	var b = document.createElement('div');
+	a.appendChild(b);
+</script>
+
+	<div id="a">
+		<div id="c"></div>
+	</div>
+	<div id="b"></div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{
+	"variables":
+	[
+		{
+			"name":"sourceDirectory",
+			"value":"src/main/haxe"
+		},
+		{
+			"name":"testSourceDirectory",
+			"value":"src/test/haxe"
+		},
+		{
+			"name":"testOutputDirectory",
+			"value":"bin/test"
+		},
+		{
+			"name":"testReportDirectory",
+			"value":"bin/test-report"
+		}
+	],
+	
+	"dependencies":
+	[
+		{
+			"name":"munit",
+			"version":"cf0c91a2c9",
+			"source": "git@github.com:massiveinteractive/MassiveUnit.git",
+			"type": "git",
+			"subdirectory": "src",
+			"makeCurrent": true,
+			"scopes": ["test"]
+		},
+		{
+			"name":"mcover",
+			"version":"2.0.3",
+			"source": "git@github.com:massiveinteractive/MassiveCover.git",
+			"type": "git",
+			"subdirectory": "src",
+			"scopes": ["test"],
+			"forceVersion": true
+		},
+		{
+			"name": "mconsole",
+			"version": "1.6.1",
+			"source": "git@github.com:massiveinteractive/mconsole.git",
+			"type": "git",
+			"subdirectory": "src",
+			"scopes": ["test"],
+			"forceVersion": true
+		},
+		{
+			"name":"mlib",
+			"version":"2.0.2",
+			"source": "git@github.com:massiveinteractive/MassiveLib.git",
+			"type": "git",
+			"subdirectory": "src",
+			"scopes": ["test"],
+			"forceVersion": true
+		}
+	],
+
+	"tests":
+	[
+		{
+			"name": "test",
+			"command": "haxelib",
+			"arguments":
+			[
+				"run", "munit", "test", "cliconfig",
+				"${variable:testSourceDirectory}",
+				"${variable:testOutputDirectory}",
+				"${variable:testReportDirectory}",
+				"-result-exit-code",
+				"config:classPath", "${variable:sourceDirectory}",
+				"config:coverageIgnoredClass", "module",
+				"target:-main", "TestMain",
+				"target:-cp", "${variable:sourceDirectory}",
+				"target:-cp", "${variable:testSourceDirectory}",
+				"${dependency:*:classPath:target:-cp}",
+				"target:-js", "${variable:testOutputDirectory}/js_test.js"
+			]
+		}
+	],
+
+	"builds":
+	[
+		{
+			"name": "compile-sample",
+			"command": "haxe",
+			"arguments":
+			[
+				"-main", "yhf.sample.Main", "-js", "bin/main.js",
+				"-cp", "${variable:sourceDirectory}",
+				"-cp", "src/sample/haxe"
+			]
+		}
+	]
+}
