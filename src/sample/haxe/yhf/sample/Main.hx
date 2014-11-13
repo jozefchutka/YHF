@@ -70,11 +70,13 @@ class Main
 
 	function onFocused(event:FocusEvent)
 	{
-		trace("onFocused", event.target.id);
+		var target:Dynamic = event.target;
+		trace("onFocused", target.id);
 	}
 
 	function onBlured(event:FocusEvent)
 	{
-		trace("onBlured", event.target.id);
+		var target:Dynamic = event.target;
+		trace("onBlured", target.id);
 	}
 }
