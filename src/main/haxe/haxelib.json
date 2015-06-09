@@ -8,8 +8,8 @@
 	"contributors": [
 		"jozefchutka"
 	],
-	"releasenote": "",
-	"version": "snapshot",
+	"releasenote": "Release 0.0.2.",
+	"version": "0.0.2",
 	"url": "https://github.com/jozefchutka/YHF",
 	"dependencies": {}
 }
