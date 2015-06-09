@@ -33,27 +33,21 @@
 		{
 			"name":"mcover",
 			"version":"2.0.3",
-			"source": "git@github.com:massiveinteractive/MassiveCover.git",
-			"type": "git",
-			"subdirectory": "src",
+			"type": "haxelib",
 			"scopes": ["test"],
 			"forceVersion": true
 		},
 		{
-			"name": "mconsole",
-			"version": "1.6.1",
-			"source": "git@github.com:massiveinteractive/mconsole.git",
-			"type": "git",
-			"subdirectory": "src",
+			"name":"mconsole",
+			"version":"1.6.0",
+			"type": "haxelib",
 			"scopes": ["test"],
 			"forceVersion": true
 		},
 		{
 			"name":"mlib",
 			"version":"2.0.2",
-			"source": "git@github.com:massiveinteractive/MassiveLib.git",
-			"type": "git",
-			"subdirectory": "src",
+			"type": "haxelib",
 			"scopes": ["test"],
 			"forceVersion": true
 		}

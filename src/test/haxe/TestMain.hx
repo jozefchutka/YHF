@@ -31,8 +31,8 @@ class TestMain
 		#end
 
 		var runner:TestRunner = new TestRunner(client); 
-		//runner.addResultClient(httpClient);
-		runner.addResultClient(new HTTPClient(new JUnitReportClient()));
+		runner.addResultClient(httpClient);
+		//runner.addResultClient(new HTTPClient(new JUnitReportClient()));
 		
 		runner.completionHandler = completionHandler;
 		runner.run(suites);
