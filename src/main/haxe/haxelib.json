@@ -1,0 +1,15 @@
+{
+	"name": "yhf",
+	"license": "MIT",
+	"tags": [
+		"html"
+	],
+	"description": "YHF provides extends mutation observation support.",
+	"contributors": [
+		"jozefchutka"
+	],
+	"releasenote": "",
+	"version": "snapshot",
+	"url": "https://github.com/jozefchutka/YHF",
+	"dependencies": {}
+}

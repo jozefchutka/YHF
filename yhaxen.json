@@ -94,5 +94,23 @@
 				"-cp", "src/sample/haxe"
 			]
 		}
+	],
+
+	"releases":
+	[
+		{
+			"type": "haxelib",
+			"haxelib": "${variable:sourceDirectory}/haxelib.json",
+			"archiveInstructions":
+			[
+				{"source": "${variable:sourceDirectory}/haxelib.json", "target":"haxelib.json"},
+				{"source": "${variable:sourceDirectory}/js", "target": "js"},
+				{"source": "${variable:sourceDirectory}/yhf", "target": "yhf"}
+			]
+		},
+		{
+			"type": "git",
+			"haxelib": "${variable:sourceDirectory}/haxelib.json"
+		}
 	]
 }
