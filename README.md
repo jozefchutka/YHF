@@ -1,28 +1,35 @@
-# TODO
-- test performance with observing
-- focus management
-- layout
-- simple width, height
-- simple x, y via transform matrix
-- css definition from template
-- binding via Object.observe()
+YHF provides core support for HTML applications, including DOM manipulation events, focus management, CSS tools and others.
 
-## Unit Test
-- FocusUtil.addFocusListener, addBlurListener
-- test onfocused event is dispatched
-- custom event can be dispatched, bubbles
-- event would bubble even outside document (see issue)
+# Example
+```haxe
+import js.html.BodyElement;
+import js.html.CustomEvent;
+import js.html.Node;
+import js.Browser;
+import yhf.enums.Event;
+import yhf.Controller;
 
-# Known Issues
-- on Chrome event would not bubble from child if parent is not in document https://code.google.com/p/chromium/issues/detail?id=120494
-- on IE11 removing a Text node would dispatch two observed mutations
+var body = Browser.document.body;
+var root = new Controller<BodyElement>(body);
+root.observe = true;
+root.addListener(Event.CHILD_ADDED, function(event:CustomEvent)
+{
+	var node:Node = cast event.detail;
+	var controller = Controller.getController(node);
+	if(controller != null)
+		trace("Div element with controller added.");
+});
+
+var div1 = Browser.document.createDivElement();
+body.appendChild(div1);
+
+var div2 = Browser.document.createDivElement();
+var div1Controller = new Controller<DivElement>(div2);
+div1.appendChild(div2);
+```
 
 # Support
-IE9+
-Chrome
-FireFox
-Safari
-
-## IE8
-- missing addEventListener - fixable
-- missing global Node object - unknown solution
+- IE9+
+- Chrome
+- FireFox
+- Safari

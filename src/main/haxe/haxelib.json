@@ -4,7 +4,7 @@
 	"tags": [
 		"html"
 	],
-	"description": "YHF provides extends mutation observation support.",
+	"description": "YHF provides core support for HTML applications.",
 	"contributors": [
 		"jozefchutka"
 	],
