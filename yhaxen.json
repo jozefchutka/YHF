@@ -6,6 +6,10 @@
 			"value":"src/main/haxe"
 		},
 		{
+			"name":"outputDirectory",
+			"value":"bin"
+		},
+		{
 			"name":"testSourceDirectory",
 			"value":"src/test/haxe"
 		},
@@ -79,11 +83,21 @@
 	"builds":
 	[
 		{
+			"name": "clean",
+			"command": "ant",
+			"arguments": ["clean", "-DoutputDirectory=${variable:outputDirectory}"]
+		},
+		{
+			"name": "prepare",
+			"command": "ant",
+			"arguments": ["prepare", "-DoutputDirectory=${variable:outputDirectory}"]
+		},
+		{
 			"name": "compile-sample",
 			"command": "haxe",
 			"arguments":
 			[
-				"-main", "yhf.sample.Main", "-js", "bin/main.js",
+				"-main", "yhf.sample.Main", "-js", "${variable:outputDirectory}/main.js",
 				"-cp", "${variable:sourceDirectory}",
 				"-cp", "src/sample/haxe"
 			]
